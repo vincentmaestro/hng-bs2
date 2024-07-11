@@ -1,5 +1,5 @@
 const { DataTypes, Sequelize } = require('sequelize');
-const sequelize = new Sequelize('postgres://postgres:admin@localhost:5432/hng-bs2');
+const sequelize = new Sequelize(process.env.db_key);
 
 const User = sequelize.define('user', {
     userId: {

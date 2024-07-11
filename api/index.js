@@ -1,14 +1,10 @@
-// require('express-async-errors');
-// const { Sequelize } = require('sequelize');
 const express = require('express');
 const user = require('../routes/user');
 const auth = require('../routes/auth');
 
-// process.on('unhandledRejection', ex => console.log(ex.message));
-// process.on('uncaughtException', ex => console.log(ex.message));
-
-
 const app = express();
+
+app.get('/', () => console.log('home'));
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log('app started on port ' + port));
