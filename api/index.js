@@ -4,7 +4,7 @@ const auth = require('../routes/auth');
 
 const app = express();
 
-app.get('/', () => console.log('home'));
+app.get('/', (req, res) => res.send('hello'));
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log('app started on port ' + port));
