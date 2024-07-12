@@ -42,7 +42,7 @@ router.post('/', async (req, res) => {
             return { field, message };
         });
         res.status(422).send({errors: ers});
-        // console.log(ex);
+        console.log(ex.message);
     }
 });
 
