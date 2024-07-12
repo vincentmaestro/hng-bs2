@@ -1,4 +1,5 @@
 const { DataTypes, Sequelize, UUIDV4 } = require('sequelize');
+const pg = require('pg');
 const User = require('./user');
 
 
@@ -6,6 +7,7 @@ const sequelize = new Sequelize('edb_admin', 'edb_admin', process.env.db_passwor
     host: 'p-hfcgp9sz5e.pg.biganimal.io',
     port: 5432,
     dialect: 'postgres',
+    dialectModule: pg,
     ssl: true
   });
 
