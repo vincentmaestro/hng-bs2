@@ -1,5 +1,13 @@
 const { DataTypes, Sequelize, UUIDV4 } = require('sequelize');
-const sequelize = new Sequelize('postgres://postgres:admin@localhost:5432/hng-bs2');
+const User = require('./user');
+
+
+const sequelize = new Sequelize('edb_admin', 'edb_admin', process.env.db_password, {
+    host: 'p-hfcgp9sz5e.pg.biganimal.io',
+    port: 5432,
+    dialect: 'postgres',
+    ssl: true
+  });
 
 const Organization = sequelize.define('organization', {
     OrgId: {
@@ -12,6 +20,8 @@ const Organization = sequelize.define('organization', {
     },
     description: DataTypes.STRING
 });
+
+Organization.belongsTo(User);
 
 
 module.exports = Organization;

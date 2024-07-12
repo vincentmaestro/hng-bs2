@@ -1,4 +1,7 @@
 const { DataTypes, Sequelize, UUIDV4 } = require('sequelize');
+const Organization = require('./organization');
+
+
 const sequelize = new Sequelize('edb_admin', 'edb_admin', process.env.db_password, {
     host: 'p-hfcgp9sz5e.pg.biganimal.io',
     port: 5432,
@@ -30,6 +33,8 @@ const User = sequelize.define('user', {
     },
     phone: DataTypes.STRING
 });
+
+User.hasMany(Organization);
 
 
 module.exports = User;
