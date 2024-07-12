@@ -21,7 +21,7 @@ const Organization = sequelize.define('organization', {
     description: DataTypes.STRING
 });
 
-Organization.belongsTo(User);
+// Organization.belongsTo(User);
 
 
 module.exports = Organization;

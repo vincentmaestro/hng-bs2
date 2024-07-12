@@ -34,7 +34,7 @@ const User = sequelize.define('user', {
     phone: DataTypes.STRING
 });
 
-User.hasMany(Organization);
+// User.hasMany(Organization);
 
 
 module.exports = User;
