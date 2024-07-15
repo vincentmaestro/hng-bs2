@@ -24,7 +24,8 @@ const Organization = sequelize.define('organization', {
 
 Organization.hasMany(User, {
     foreignKey: {
-        type: DataTypes.UUID
+        type: DataTypes.UUID,
+        allowNull: false
     }
 });
 User.belongsTo(Organization);
