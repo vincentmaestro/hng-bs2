@@ -8,8 +8,8 @@ const router = express.Router();
 router.post('/', async (req, res) => {
     try {
         let user = await User.findOne({ where: { email: req.body.email } });
-        const hashedPassword = await bcrypt.compare(req.body.password, user.password);
 
+        await bcrypt.compare(req.body.password, user.password);
         const accessToken = jwt.sign('HNG_Stage2', user.userId);
 
         res.status(201).send({
@@ -33,7 +33,6 @@ router.post('/', async (req, res) => {
             message: 'Authentication failed',
             statusCode: 401
         });
-        console.log(ex.message);
     }
 });
 
