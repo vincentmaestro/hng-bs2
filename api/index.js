@@ -3,6 +3,7 @@ const user = require('../routes/user');
 const auth = require('../routes/auth');
 
 const app = express();
+const db_password = 'jjkskuuosukgfu';
 
 app.get('/', (req, res) => res.send('hello'));
 

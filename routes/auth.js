@@ -10,7 +10,7 @@ router.post('/', async (req, res) => {
         let user = await User.findOne({ where: { email: req.body.email } });
 
         await bcrypt.compare(req.body.password, user.password);
-        const accessToken = jwt.sign('HNG_Stage2', user.userId);
+        const accessToken = jwt.sign('HNG_Stage2', user.id);
 
         res.status(201).send({
             status: 'Success',
@@ -18,7 +18,7 @@ router.post('/', async (req, res) => {
             data: {
                 accessToken: accessToken,
                 user: {
-                    userId: user.userId,
+                    id: user.id,
                     firstName: user.firstName,
                     lastName: user.lastName,
                     email: user.email,
